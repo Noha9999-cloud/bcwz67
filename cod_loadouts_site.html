@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meilleures classes et loadouts META pour Call of Duty Warzone, Black Ops 6 et Black Ops 7 - Configurations optimales pour dominer en 2025">
+    <meta name="keywords" content="warzone, cod, black ops, loadouts, classes, meta, armes, configurations">
+    <meta name="author" content="BCWZ">
+    <title>BCWZ - Meilleures Classes META 2025 | Warzone BO6 BO7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #0a0012;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0012 0%, #1a0028 50%, #0f0520 100%);
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7, #ec4899, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+        }
+
+        .subtitle {
+            color: #c084fc;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            background: rgba(168, 85, 247, 0.08);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.12);
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
+        }
+
+        .search-box::placeholder {
+            color: #9ca3af;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            color: #c084fc;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(168, 85, 247, 0.2);
+            border-color: #a855f7;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
+        }
+
+        .weapons-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        .weapon-card {
+            background: linear-gradient(145deg, rgba(30, 20, 50, 0.6), rgba(20, 10, 40, 0.8));
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weapon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a855f7, #ec4899, #f59e0b);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .weapon-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
+        }
+
+        .weapon-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .weapon-name {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .weapon-badge {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-tag {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #f9a8d4;
+            margin-bottom: 16px;
+        }
+
+        .rating {
+            text-align: center;
+            font-size: 16px;
+            color: #fbbf24;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 10px;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c084fc;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .items-list {
+            background: rgba(168, 85, 247, 0.06);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .item {
+            padding: 8px 0;
+            color: #e0c3fc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item::before {
+            content: '▸';
+            color: #a855f7;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #e0c3fc;
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 24px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #9ca3af;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #9ca3af;
+            font-size: 14px;
+            border-top: 1px solid rgba(168, 85, 247, 0.1);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+            .weapons-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    
+    <header>
+        <h1 class="logo">🎯 BCWZ META</h1>
+        <p class="subtitle">BO6 • BO7 • WARZONE - 2025</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="🔍 Rechercher une arme...">
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="tous">Tous</button>
+        <button class="filter-btn" data-filter="meta">META Warzone</button>
+        <button class="filter-btn" data-filter="ar">Fusils d'Assaut</button>
+        <button class="filter-btn" data-filter="smg">Mitraillettes</button>
+        <button class="filter-btn" data-filter="sniper">Snipers</button>
+        <button class="filter-btn" data-filter="lmg">Mitrailleuses</button>
+    </div>
+
+    <div class="weapons-grid" id="weaponsGrid"></div>
+
+    <footer>
+        <p>© 2025 BCWZ - Toutes les meilleures classes META pour Call of Duty</p>
+        <p style="margin-top: 10px; font-size: 12px;">Site non affilié à Activision ou Call of Duty</p>
+    </footer>
+
+    <script>
+        const weapons = [
+            // META ABSOLU
+            {name:"MXR-17",type:"meta",typeName:"META Absolu",game:"BO7",rating:"⭐⭐⭐⭐⭐ 10/10",attachments:["Viseur Lethal Tools ELO","Suppresseur Monolithique","Canon 17\" Greaves Scourge","Poignée Latérale Précision","Chargeur Tambour Rhodes"],perks:["Fantôme","Dextérité","Mains Rapides"],stats:{dps:"Extrême",portee:"Longue",mobilite:"Excellente",recul:"Très Faible"}},
+            {name:"MPC-25",type:"meta",typeName:"META Absolu",game:"BO7",rating:"⭐⭐⭐⭐⭐ 10/10",attachments:["Compensateur K&S","Butée Zero Shift","Chargeur Tambour MPC Overload","Poignée Magnate","Unité Synchro Recul"],perks:["Léger","Mains Rapides","Dextérité"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Faible"}},
+            {name:"DS20 Mirage",type:"meta",typeName:"META Absolu",game:"BO7",rating:"⭐⭐⭐⭐⭐ 10/10",attachments:["Viseur Greaves Accuspot 3X","Suppresseur Monolithique","Canon 17.1\" Abdicator","Chargeur Griffon Reserve Étendu II","Unité Synchro Recul"],perks:["Fantôme","Assassin","Ampli"],stats:{dps:"Extrême",portee:"Longue",mobilite:"Bonne",recul:"Très Faible"}},
+            {name:"VS Recon",type:"meta",typeName:"META Absolu",game:"BO7",rating:"⭐⭐⭐⭐⭐ 10/10",attachments:["Suppresseur Monolithique","Canon 23\" G-Force","Garde-Main Stetig-C","Poignée R-1 Shelf","7.62 NATO Surpression"],perks:["Fantôme","Sang-Froid","Ninja"],stats:{dps:"One-Shot",portee:"Extrême",mobilite:"Bonne",recul:"N/A"}},
+            
+            // META
+            {name:"Sokol 545",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Viseur Greaves Accuspot 3X","Suppresseur Monolithique","Canon 18.2\" Parlous Lourd","Crosse Taction Control","Ressort Tampon"],perks:["Fantôme","Dextérité","Ampli"],stats:{dps:"Très Élevé",portee:"Excellente",mobilite:"Moyenne",recul:"Faible"}},
+            {name:"Kogot-7",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Hawker Series 45","Canon 13.5\" Canis-05","Poignée VAS Drift Lock","Chargeur Vex Expanse","Ressort Tampon"],perks:["Léger","Mains Rapides","Dextérité"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Élevé"}},
+            {name:"Razor 9mm",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Viseur Lethal Tools ELO","Compensateur H-9mm Précision","Canon 12\" MFS Sidewinder","Chargeur Zealot Étendu II","Système Recul Accéléré"],perks:["Ninja","Mains Rapides","Double Temps"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"MK.78",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Viseur Greaves Accuspot 3X","Compensateur RL-7.62","Canon 25\" EAM Lourd","Poignée Bowen Sentry","Système Recul Accéléré"],perks:["Fantôme","Assassin","Ampli"],stats:{dps:"Très Élevé",portee:"Excellente",mobilite:"Faible",recul:"Faible"}},
+            {name:"Maddox RFB",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Viseur Greaves Accuspot 3X","Suppresseur Monolithique","Canon 21\" Turbine Booster","Chargeur Mandible Étendu","Crosse Furrow Control"],perks:["Fantôme","Dextérité","Mains Rapides"],stats:{dps:"Extrême",portee:"Moyenne",mobilite:"Excellente",recul:"Faible"}},
+            {name:"Carbon 57",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Compensateur K&S","Canon 14\" Rockleigh","Butée Sapper Guard","Poignée Dulcet Control","Système Recul Accéléré"],perks:["Léger","Gung-Ho","Masque Tactique"],stats:{dps:"Très Élevé",portee:"Courte",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"AK-27",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Viseur Lethal Tools ELO","Suppresseur Monolithique","Canon 17.6\" Vandal Lourd","Poignée Latérale Précision","Chargeur Tambour Saber Pack Lourd"],perks:["Fantôme","Assassin","Ampli"],stats:{dps:"Très Élevé",portee:"Longue",mobilite:"Moyenne",recul:"Faible"}},
+            {name:"M15 MOD 0",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Viseur Lethal Tools ELO","Suppresseur Monolithique","Canon 20\" Delta-F2","Chargeur Bowen Bulwark","Crosse Bowen Linchpin"],perks:["Léger","Mains Rapides","Dextérité"],stats:{dps:"Très Élevé",portee:"Longue",mobilite:"Excellente",recul:"Très Faible"}},
+            {name:"XR-3 Ion",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.6/10",attachments:["Viseur Greaves Accuspot 3X","Suppresseur LTI Triad","Canon 20\" Ion Trinity","Garde-Main Zero-S","7.62 NATO Surpression"],perks:["Fantôme","Sang-Froid","Alerte Élevée"],stats:{dps:"One-Shot",portee:"Extrême",mobilite:"Bonne",recul:"N/A"}},
+            {name:"Dravec 45",type:"meta",typeName:"META",game:"BO7",rating:"⭐⭐⭐⭐⭐ 9.5/10",attachments:["Suppresseur Bowen .45","Canon 19\" EAM Horizon","Chargeur Gator Étendu","Poignée Herald-Z1","Crosse Serval Q-Step"],perks:["Ninja","Mains Rapides","Double Temps"],stats:{dps:"Extrême",portee:"Moyenne",mobilite:"Excellente",recul:"Très Faible"}},
+            
+            {name:"XM4",type:"ar",typeName:"Fusil d'Assaut",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Compensateur","Canon Renforcé","Viseur Kepler Microflex","Chargeur Étendu II","Poignée Ergonomique"],perks:["Léger","Mains Rapides","Dextérité"],stats:{dps:"Très Élevé",portee:"Moyenne",mobilite:"Excellente",recul:"Faible"}},
+            {name:"AS VAL",type:"ar",typeName:"Fusil d'Assaut",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Suppresseur","VDV Renforcé","Viseur Slate","Chargeur Rapide II","Poignée Verticale"],perks:["Fantôme","Dextérité","Gung-Ho"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"AMES 85",type:"ar",typeName:"Fusil d'Assaut",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Compensateur","Canon CHF","Viseur Accu-Spot","Chargeur Étendu II","Poignée Ranger"],perks:["Gilet Pare-Balles","Intel Avancé","Masque Tactique"],stats:{dps:"Très Élevé",portee:"Longue",mobilite:"Moyenne",recul:"Très Faible"}},
+            {name:"GPR 91",type:"ar",typeName:"Fusil d'Assaut",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.6/10",attachments:["Compensateur Porté","Canon Gain-Twist","Viseur Merlin","Chargeur Étendu I","Crosse Combat"],perks:["Fantôme","Assassin","Ampli"],stats:{dps:"Élevé",portee:"Excellente",mobilite:"Moyenne",recul:"Très Faible"}},
+            {name:"KSV",type:"smg",typeName:"Mitraillette",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Suppresseur","Canon Long","Laser Visée Stable","Chargeur Étendu I","Crosse Légère"],perks:["Ninja","Mains Rapides","Double Temps"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Faible"}},
+            {name:"Jackal PDW",type:"smg",typeName:"Mitraillette",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Compensateur","Canon Cadence Rapide","Laser Cible","Chargeur Rapide II","Crosse CQB"],perks:["Léger","Gung-Ho","Dextérité"],stats:{dps:"Extrême",portee:"Courte",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"C9",type:"smg",typeName:"Mitraillette",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Frein de Bouche","Canon Renforcé","Laser Rapide","Chargeur Étendu II","Poignée Ergonomique"],perks:["Fantôme","Assassin","Sang-Froid"],stats:{dps:"Très Élevé",portee:"Moyenne",mobilite:"Excellente",recul:"Faible"}},
+            {name:"LR 7.62",type:"sniper",typeName:"Sniper",game:"BO6",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Suppresseur","Canon Long","Jason Armory 4x","Chargeur Rapide I","Munitions FMJ"],perks:["Fantôme","Sang-Froid","Ninja"],stats:{dps:"One-Shot",portee:"Extrême",mobilite:"Bonne",recul:"N/A"}}
+        ];
+
+        let currentFilter = 'tous';
+        let searchQuery = '';
+
+        function renderWeapons() {
+            const grid = document.getElementById('weaponsGrid');
+            let filtered = weapons;
+
+            if (currentFilter !== 'tous') {
+                filtered = filtered.filter(w => w.type === currentFilter);
+            }
+
+            if (searchQuery) {
+                filtered = filtered.filter(w => 
+                    w.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    w.game.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="no-results">Aucune arme trouvée</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(w => `
+                <div class="weapon-card">
+                    <div class="card-header">
+                        <div class="weapon-name">${w.name}</div>
+                        <div class="weapon-badge">${w.typeName}</div>
+                    </div>
+                    <div class="game-tag">${w.game}</div>
+                    <div class="rating">${w.rating}</div>
+                    
+                    <div class="section">
+                        <div class="section-title">📦 Accessoires</div>
+                        <div class="items-list">
+                            ${w.attachments.map(a => `<div class="item">${a}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">💎 Atouts</div>
+                        <div class="items-list">
+                            ${w.perks.map(p => `<div class="item">${p}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">📊 Statistiques</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-label">DPS</div>
+                                <div class="stat-value">${w.stats.dps}</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Portée</div>
+                                <div class="stat-value">${w.stats.portee}</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Mobilité</div>
+                                <div class="stat-value">${w.stats.mobilite}</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Recul</div>
+                                <div class="stat-value">${w.stats.recul}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="copy-btn" onclick="copyLoadout('${w.name}')">
+                        📋 Copier la Config
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function copyLoadout(name) {
+            const weapon = weapons.find(w => w.name === name);
+            const text = `${weapon.name} - ${weapon.typeName}
+${weapon.rating}
+
+Accessoires:
+${weapon.attachments.join('\n')}
+
+Atouts:
+${weapon.perks.join('\n')}
+
+Stats:
+DPS: ${weapon.stats.dps}
+Portée: ${weapon.stats.portee}
+Mobilité: ${weapon.stats.mobilite}
+Recul: ${weapon.stats.recul}`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Configuration copiée dans le presse-papiers!');
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.dataset.filter;
+                renderWeapons();
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderWeapons();
+        });
+
+        renderWeapons();
+    </script>
+</body>
+</html>
