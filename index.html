@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Balise Google Search Console -->
+    <meta name="google-site-verification" content="TON-CODE-GOOGLE" />
+    
+    <title>Warzone - Meilleures Classes d'Armes</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #2d0052 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header { text-align: center; padding: 40px 20px; margin-bottom: 40px; }
+        h1 {
+            font-size: 48px;
+            background: linear-gradient(45deg, #7b2cbf, #9d4edd, #c77dff, #e0aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+        .subtitle { color: #e0aaff; font-size: 20px; }
+        .filter-buttons {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 12px 30px; background: rgba(157, 78, 221, 0.2);
+            border: 2px solid #9d4edd; border-radius: 10px;
+            color: #e0aaff; cursor: pointer; transition: all 0.3s;
+            font-size: 16px; font-weight: bold;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #7b2cbf, #9d4edd); color: white;
+            transform: translateY(-2px); box-shadow: 0 5px 20px rgba(157, 78, 221, 0.5);
+        }
+        .weapons-container {
+            max-width: 1600px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px; padding: 0 20px;
+        }
+        .weapon-card {
+            background: linear-gradient(135deg, rgba(45,0,82,0.8), rgba(20,0,40,0.9));
+            border: 2px solid rgba(157,78,221,0.4);
+            border-radius: 20px; padding: 30px; transition: all 0.3s; cursor: pointer;
+        }
+        .weapon-card:hover {
+            transform: translateY(-5px); border-color: #c77dff;
+            box-shadow: 0 10px 40px rgba(157,78,221,0.6);
+        }
+        .weapon-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid rgba(157,78,221,0.3); }
+        .weapon-name { font-size: 28px; font-weight: bold; color: #c77dff; }
+        .weapon-type { background: linear-gradient(135deg,#7b2cbf,#9d4edd); padding:6px 15px; border-radius:20px; font-size:14px; font-weight:bold; }
+        .weapon-rating { text-align:center; margin-bottom:20px; font-size:18px; color:#ffd700; }
+        .section-title { color:#c77dff; font-size:16px; font-weight:bold; margin:20px 0 10px 0; text-transform:uppercase; letter-spacing:1px; }
+        .attachment-list, .perk-list { background: rgba(157,78,221,0.1); border-radius:10px; padding:15px; margin-bottom:15px; }
+        .attachment-item::before { content:"▸"; color:#9d4edd; font-weight:bold; }
+        .perk-item::before { content:"✓"; color:#9d4edd; font-weight:bold; }
+        .weapon-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:20px; }
+        .stat { background: rgba(157,78,221,0.15); padding:10px; border-radius:8px; text-align:center; }
+        .stat-label { font-size:12px; color:#e0aaff; margin-bottom:5px; }
+        .stat-value { font-size:20px; font-weight:bold; color:#c77dff; }
+        .copy-btn {
+            width:100%; padding:12px; margin-top:20px;
+            background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+            border:none; border-radius:10px; color:white; font-size:16px; font-weight:bold; cursor:pointer; transition: all 0.3s;
+        }
+        .copy-btn:hover { transform: scale(1.02); box-shadow:0 5px 25px rgba(157,78,221,0.7); }
+        @media (max-width:768px){ h1{ font-size:32px; } .weapons-container{ grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 MEILLEURES CLASSES WARZONE</h1>
+        <p class="subtitle">Toutes les armes avec leurs configurations optimales</p>
+    </header>
+
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterWeapons('tous')">Tous</button>
+        <button class="filter-btn" onclick="filterWeapons('ar')">Fusils d'Assaut</button>
+        <button class="filter-btn" onclick="filterWeapons('smg')">Mitraillettes</button>
+        <button class="filter-btn" onclick="filterWeapons('sniper')">Snipers</button>
+        <button class="filter-btn" onclick="filterWeapons('lmg')">Mitrailleuses</button>
+        <button class="filter-btn" onclick="filterWeapons('shotgun')">Fusils à Pompe</button>
+    </div>
+
+    <div class="weapons-container" id="weaponsContainer"></div>
+
+    <script>
+        const weapons = [
+            {name:"RAM-7",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Canon : Ranger","Bouche : Compensateur","Lunette : VLK 3.0x","Chargeur : 50 Cartouches","Sous-canon : Commando"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Élevé",portee:"Moyenne",mobilite:"Bonne",recul:"Moyen"}},
+            {name:"Grau 5.56",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐⭐ 9.5/10",attachments:["Canon : Archange","Bouche : Monolithique","Lunette : VLK 3.0x","Chargeur : 60 Cartouches","Sous-canon : Commando"],perks:["Atout 1 : EOD","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Moyen",portee:"Excellente",mobilite:"Bonne",recul:"Très Faible"}},
+            {name:"M4A1",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐ 9.3/10",attachments:["Canon : Corvus Custom","Bouche : Monolithique","Lunette : Intégrale Hybride","Chargeur : 60 Cartouches","Sous-canon : Ranger"],perks:["Atout 1 : Double Temps","Atout 2 : Recharge","Atout 3 : Ampli"],stats:{dps:"Élevé",portee:"Bonne",mobilite:"Moyenne",recul:"Faible"}},
+            {name:"Kilo 141",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐ 9.0/10",attachments:["Canon : Singuard Arms 19.8","Bouche : Monolithique","Lunette : VLK 3.0x","Chargeur : 60 Cartouches","Sous-canon : Commando"],perks:["Atout 1 : EOD","Atout 2 : Hardline","Atout 3 : Ampli"],stats:{dps:"Moyen",portee:"Excellente",mobilite:"Bonne",recul:"Très Faible"}},
+            {name:"CR-56 AMAX",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Canon : XRK Zodiac S440","Bouche : Monolithique","Lunette : VLK 3.0x","Chargeur : 45 Cartouches","Sous-canon : Commando"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Très Élevé",portee:"Bonne",mobilite:"Moyenne",recul:"Moyen"}},
+            {name:"MP5",type:"smg",typeName:"Mitraillette",rating:"⭐⭐⭐⭐⭐ 9.9/10",attachments:["Canon : Intégral Monolithique","Laser : 5mW","Crosse : FTAC Collapsible","Chargeur : 45 Cartouches","Sous-canon : Merc"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Traque"],stats:{dps:"Très Élevé",portee:"Courte",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"MP7",type:"smg",typeName:"Mitraillette",rating:"⭐⭐⭐⭐ 9.4/10",attachments:["Canon : FSS Recon","Bouche : Monolithique","Lunette : Intégrale","Chargeur : 60 Cartouches","Sous-canon : Ranger"],perks:["Atout 1 : EOD","Atout 2 : Ghost","Atout 3 : Traque"],stats:{dps:"Élevé",portee:"Moyenne",mobilite:"Excellente",recul:"Très Faible"}},
+            {name:"MAC-10",type:"smg",typeName:"Mitraillette",rating:"⭐⭐⭐⭐⭐ 9.6/10",attachments:["Canon : 6.5 Task Force","Bouche : Agency","Laser : Tiger Team","Chargeur : 53 Drum","Poignée : Raider Stock"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Très Élevé",portee:"Courte",mobilite:"Excellente",recul:"Élevé"}},
+            {name:"LC10",type:"smg",typeName:"Mitraillette",rating:"⭐⭐⭐⭐ 9.2/10",attachments:["Canon : 13.9 Task Force","Bouche : Agency","Crosse : Raider Pad","Chargeur : 52 STANAG","Sous-canon : Field Agent"],perks:["Atout 1 : EOD","Atout 2 : Recharge","Atout 3 : Traque"],stats:{dps:"Moyen",portee:"Bonne",mobilite:"Excellente",recul:"Faible"}},
+            {name:"KAR98K",type:"sniper",typeName:"Sniper",rating:"⭐⭐⭐⭐⭐ 9.8/10",attachments:["Canon : Singuard Custom 27.6","Laser : Tac","Lunette : Sniper","Crosse : FTAC Sport Comb","Atout : Précision"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"One-Shot",portee:"Très Longue",mobilite:"Bonne",recul:"N/A"}},
+            {name:"Swiss K31",type:"sniper",typeName:"Sniper",rating:"⭐⭐⭐⭐⭐ 9.7/10",attachments:["Canon : 24.9 Combat Recon","Bouche : GRU","Lunette : Axial Arms 3x","Crosse : Serpent Wrap","Chargeur : 7 Rnd"],perks:["Atout 1 : EOD","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"One-Shot",portee:"Très Longue",mobilite:"Excellente",recul:"Faible"}},
+            {name:"HDR",type:"sniper",typeName:"Sniper",rating:"⭐⭐⭐⭐ 9.4/10",attachments:["Canon : 26.9 HDR Pro","Bouche : Monolithique","Lunette : Variable","Crosse : FTAC Stalker-Scout","Atout : Précision"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"One-Shot",portee:"Extrême",mobilite:"Faible",recul:"N/A"}},
+            {name:"Bruen Mk9",type:"lmg",typeName:"Mitrailleuse",rating:"⭐⭐⭐⭐ 9.1/10",attachments:["Canon : Summit 26.8","Bouche : Monolithique","Lunette : VLK 3.0x","Chargeur : 60 Cartouches","Sous-canon : Tac Laser"],perks:["Atout 1 : Double Temps","Atout 2 : Hardline","Atout 3 : Ampli"],stats:{dps:"Élevé",portee:"Excellente",mobilite:"Faible",recul:"Faible"}},
+            {name:"PKM",type:"lmg",typeName:"Mitrailleuse",rating:"⭐⭐⭐⭐ 9.0/10",attachments:["Canon : Lourd 26.9","Bouche : Monolithique","Lunette : VLK 3.0x","Sous-canon : Snatch","Atout : FMJ"],perks:["Atout 1 : EOD","Atout 2 : Hardline","Atout 3 : Ampli"],stats:{dps:"Très Élevé",portee:"Excellente",mobilite:"Très Faible",recul:"Moyen"}},
+            {name:"Stoner 63",type:"lmg",typeName:"Mitrailleuse",rating:"⭐⭐⭐⭐ 8.9/10",attachments:["Canon : 21.8 Task Force","Bouche : Agency","Lunette : Axial Arms 3x","Sous-canon : Field Agent","Chargeur : 120 Rnd"],perks:["Atout 1 : EOD","Atout 2 : Recharge","Atout 3 : Ampli"],stats:{dps:"Élevé",portee:"Excellente",mobilite:"Faible",recul:"Moyen"}},
+            {name:"Gallo SA12",type:"shotgun",typeName:"Fusil à Pompe",rating:"⭐⭐⭐⭐ 8.7/10",attachments:["Canon : 21.4 Ranger","Bouche : Agency Choke","Laser : Ember Sighting Point","Sous-canon : Bruiser","Chargeur : 12 Rnd Tube"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Traque"],stats:{dps:"Extrême",portee:"Très Courte",mobilite:"Bonne",recul:"Élevé"}},
+            {name:"JAK-12",type:"shotgun",typeName:"Fusil à Pompe",rating:"⭐⭐⭐⭐ 8.5/10",attachments:["Canon : ZLR J-3600 Torrent","Laser : 5mW","Crosse : Forge Tac Marauder","Chargeur : 20 Round Drum","Munitions : Frag-12"],perks:["Atout 1 : EOD","Atout 2 : Recharge","Atout 3 : Traque"],stats:{dps:"Extrême",portee:"Très Courte",mobilite:"Moyenne",recul:"Très Élevé"}},
+            {name:"AK-47",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐ 9.1/10",attachments:["Canon : 23.0 Romanian","Bouche : Monolithique","Lunette : VLK 3.0x","Chargeur : 40 Cartouches","Sous-canon : Spetsnaz Elite"],perks:["Atout 1 : EOD","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Très Élevé",portee:"Bonne",mobilite:"Moyenne",recul:"Élevé"}},
+            {name:"FFAR 1",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐⭐ 9.6/10",attachments:["Canon : 19.5 Ranger","Bouche : Agency","Sous-canon : Field Agent","Chargeur : 50 STANAG","Crosse : Raider Stock"],perks:["Atout 1 : Double Temps","Atout 2 : Ghost","Atout 3 : Ampli"],stats:{dps:"Très Élevé",portee:"Moyenne",mobilite:"Excellente",recul:"Moyen"}},
+            {name:"XM4",type:"ar",typeName:"Fusil d'Assaut",rating:"⭐⭐⭐⭐ 9.3/10",attachments:["Canon : 13.7 Task Force","Bouche : Agency","Lunette : Microflex LED","Chargeur : 45 STANAG","Sous-canon : Field Agent"],perks:["Atout 1 : EOD","Atout 2
